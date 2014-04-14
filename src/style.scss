@@ -1,0 +1,96 @@
+$lpad: 1em;
+$mpad: 1em;
+$spad: 1ex;
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+body {
+	font-family: sans-serif;
+}
+
+footer {
+	text-align: center;
+}
+
+@keyframes nodeInserted {
+    from { opacity: 0; max-height: 0.001em;}
+    to { opacity: 1; max-height: 10em;}
+}
+
+.box {
+	padding: 0em;
+	max-width: 30em;
+	margin: $lpad auto;
+	background: #6A6;
+	border-radius: .2em;
+	color: #EFEFEF;
+	text-shadow: 0 0.2ex 0.2ex rgba(0,0,0,0.25);
+	box-shadow:  0 0.25ex 2ex rgba(0,0,0,0.5) inset;
+	animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    animation-name: nodeInserted;
+    overflow: hidden;
+}
+
+.propname,
+.prop {
+    width: 50%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.propname {
+    text-align: right;
+    padding-right: $lpad;
+}
+
+
+.intro {
+    padding: $mpad;
+}
+
+.intro h1 {
+    text-align: center;
+}
+
+
+.data {
+    margin: $spad auto;
+	padding: $spad $lpad;
+	background: #F7F7F7;
+	text-shadow: 0 0.1ex 0.1ex rgba(0,0,0,0.125);
+	box-shadow:  0 0.125ex 1ex rgba(0,0,0,0.25) inset;
+	color: #666;
+}
+
+.data>div {
+	font-size: 75%;
+	font-weight: normal;
+}
+
+#md5 {
+	font-size: 50%;
+}
+
+.box:drag-over,
+.box:-webkit-drag-over {
+	background:#C96;
+}
+
+.preview {
+    margin-top: 1ex;
+    margin-bottom: 1ex;
+}
+
+#rjb {
+
+    * {
+        position: absolute;
+	    left: $mpad;
+        top: $spad;
+        text-decoration: none;
+        color: #369;
+    }
+}
