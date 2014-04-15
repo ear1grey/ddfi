@@ -71,7 +71,7 @@ rdfx.ddfi = (function () {
             propToHTML(targetID, "MD5", md5(event.target.result));
         },
 
-        fileHandler = function (file, targetID, callback) {
+        fileHandler = function (file, callback) {
             var reader = new FileReader();
             reader.addEventListener("load", callback);
             reader.readAsDataURL(file);
@@ -83,7 +83,6 @@ rdfx.ddfi = (function () {
         imageHandler = function (file, targetID) {
             fileHandler(
                 file,
-                targetID,
                 function () {
                     addStandardText(file, targetID);
 
@@ -106,7 +105,6 @@ rdfx.ddfi = (function () {
         videoHandler = function (file, targetID) {
             fileHandler(
                 file,
-                targetID,
                 function () {
                     addStandardText(targetID, file);
                     addNodes(targetID, {
@@ -131,7 +129,6 @@ rdfx.ddfi = (function () {
         genericHandler = function (file, targetID) {
             fileHandler(
                 file,
-                targetID,
                 function () {
                     addStandardText(file, targetID);
                 }

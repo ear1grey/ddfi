@@ -1,6 +1,9 @@
 $lpad: 1em;
 $mpad: 1em;
 $spad: 1ex;
+$col1: #6A6;
+$oshadow: 0 0.2ex 0.2ex rgba(0,0,0,0.25);
+$ishadow: 0 0.25ex 2ex rgba(0,0,0,0.5) inset;
 
 *, *:before, *:after {
     box-sizing: border-box;
@@ -23,11 +26,11 @@ footer {
 	padding: 0em;
 	max-width: 30em;
 	margin: $lpad auto;
-	background: #6A6;
+	background: $col1;
 	border-radius: .2em;
 	color: #EFEFEF;
-	text-shadow: 0 0.2ex 0.2ex rgba(0,0,0,0.25);
-	box-shadow:  0 0.25ex 2ex rgba(0,0,0,0.5) inset;
+	text-shadow: $oshadow;
+	box-shadow:  $ishadow;
 	animation-duration: 0.5s;
     animation-timing-function: ease-in-out;
     animation-name: nodeInserted;

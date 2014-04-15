@@ -40,15 +40,12 @@ module.exports = function (grunt) {
                     // includes files within path
                     {
                         expand: true,
-                        src: ['<%= pkg.folders.src %>/**/*.html'],
-                        dest: '<%= pkg.folders.build %>/',
-                        filter: 'isFile',
-                        flatten: true
-                    },
-
-                    {
-                        expand: true,
-                        src: ['**/md5.min.js', '**/cc-by-sa-88x31.png'],
+                        src: [
+                            '<%= pkg.folders.src %>/**/*.html',
+                            '**/md5.min.js',
+                            '<%= pkg.folders.src %>/**/*.js',
+                            '**/cc-by-sa-88x31.png'
+                        ],
                         dest: '<%= pkg.folders.build %>/',
                         filter: 'isFile',
                         flatten: true

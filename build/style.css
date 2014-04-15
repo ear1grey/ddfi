@@ -1,38 +1,38 @@
-/* line 5, src/style.scss */
+/* line 8, src/style.scss */
 *, *:before, *:after {
   box-sizing: border-box;
 }
 
-/* line 9, src/style.scss */
+/* line 12, src/style.scss */
 body {
   font-family: sans-serif;
 }
 
-/* line 13, src/style.scss */
+/* line 16, src/style.scss */
 footer {
   text-align: center;
 }
 
 @keyframes nodeInserted {
-  /* line 18, src/style.scss */
+  /* line 21, src/style.scss */
   from {
     opacity: 0;
     max-height: 0.001em;
   }
 
-  /* line 19, src/style.scss */
+  /* line 22, src/style.scss */
   to {
     opacity: 1;
     max-height: 10em;
   }
 }
 
-/* line 22, src/style.scss */
+/* line 25, src/style.scss */
 .box {
   padding: 0em;
   max-width: 30em;
   margin: 1em auto;
-  background: #6A6;
+  background: #66aa66;
   border-radius: .2em;
   color: #EFEFEF;
   text-shadow: 0 0.2ex 0.2ex rgba(0, 0, 0, 0.25);
@@ -43,7 +43,7 @@ footer {
   overflow: hidden;
 }
 
-/* line 38, src/style.scss */
+/* line 41, src/style.scss */
 .propname,
 .prop {
   width: 50%;
@@ -51,23 +51,23 @@ footer {
   vertical-align: top;
 }
 
-/* line 44, src/style.scss */
+/* line 47, src/style.scss */
 .propname {
   text-align: right;
   padding-right: 1em;
 }
 
-/* line 50, src/style.scss */
+/* line 53, src/style.scss */
 .intro {
   padding: 1em;
 }
 
-/* line 54, src/style.scss */
+/* line 57, src/style.scss */
 .intro h1 {
   text-align: center;
 }
 
-/* line 59, src/style.scss */
+/* line 62, src/style.scss */
 .data {
   margin: 1ex auto;
   padding: 1ex 1em;
@@ -77,30 +77,30 @@ footer {
   color: #666;
 }
 
-/* line 68, src/style.scss */
+/* line 71, src/style.scss */
 .data > div {
   font-size: 75%;
   font-weight: normal;
 }
 
-/* line 73, src/style.scss */
+/* line 76, src/style.scss */
 #md5 {
   font-size: 50%;
 }
 
-/* line 78, src/style.scss */
+/* line 81, src/style.scss */
 .box:drag-over,
 .box:-webkit-drag-over {
   background: #C96;
 }
 
-/* line 82, src/style.scss */
+/* line 85, src/style.scss */
 .preview {
   margin-top: 1ex;
   margin-bottom: 1ex;
 }
 
-/* line 89, src/style.scss */
+/* line 92, src/style.scss */
 #rjb * {
   position: absolute;
   left: 1em;
