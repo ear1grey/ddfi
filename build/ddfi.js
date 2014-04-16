@@ -20,13 +20,16 @@ rdfx.ddfi = (function () {
         Given a file, returns a dataURl for it.
         */
         asDataURL = function (filetype, file) {
-            var bin = '';
-            var bytes = new Uint8Array( file )
-            var len = bytes.byteLength;
-            for (var i = 0; i < len; i++) {
-                bin += String.fromCharCode( bytes[ i ] )
+            var i,
+                bin = '',
+                bytes = new Uint8Array(file),
+                len = bytes.byteLength;
+
+            for (i = 0; i < len; i += 1) {
+                bin += String.fromCharCode(bytes[i]);
             }
-            return "data:" + filetype + ";base64,"+window.btoa( bin );
+
+            return "data:" + filetype + ";base64," + window.btoa(bin);
         },
 
         /*
