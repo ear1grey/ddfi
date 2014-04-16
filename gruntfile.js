@@ -74,6 +74,13 @@ module.exports = function (grunt) {
             options: {
                 livereload: true
             }
+        },
+
+        'gh-pages': {
+            options: {
+                base: '<%= pkg.folders.build %>'
+            },
+            src: ['**']
         }
 
     });
@@ -84,7 +91,7 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-copy');
-
+    grunt.loadNpmTasks('grunt-gh-pages');
 
     grunt.registerTask('default', ['jslint', 'sass', 'uglify', 'copy']);
 
