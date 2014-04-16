@@ -12,6 +12,7 @@ module.exports = function (grunt) {
                    predef: [
                        'rdfx',
                        'SparkMD5',
+                       'Uint8Array',
                        'FileReader' // remove when jshint catches up
                    ]
                }
