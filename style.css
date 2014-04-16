@@ -1,0 +1,110 @@
+/* line 8, src/style.scss */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+/* line 12, src/style.scss */
+body {
+  font-family: sans-serif;
+}
+
+/* line 16, src/style.scss */
+footer {
+  text-align: center;
+}
+
+@keyframes nodeInserted {
+  /* line 21, src/style.scss */
+  from {
+    opacity: 0;
+    max-height: 0.001em;
+  }
+
+  /* line 22, src/style.scss */
+  to {
+    opacity: 1;
+    max-height: 10em;
+  }
+}
+
+/* line 25, src/style.scss */
+.box {
+  padding: 0em;
+  max-width: 30em;
+  margin: 1em auto;
+  background: #66aa66;
+  border-radius: .2em;
+  color: #EFEFEF;
+  text-shadow: 0 0.2ex 0.2ex rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0.25ex 2ex rgba(0, 0, 0, 0.5) inset;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+  animation-name: nodeInserted;
+  overflow: hidden;
+}
+
+/* line 41, src/style.scss */
+.propname,
+.prop {
+  width: 50%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+/* line 47, src/style.scss */
+.propname {
+  text-align: right;
+  padding-right: 1em;
+}
+
+/* line 53, src/style.scss */
+.intro {
+  padding: 1em;
+}
+
+/* line 57, src/style.scss */
+.intro h1 {
+  text-align: center;
+}
+
+/* line 62, src/style.scss */
+.data {
+  margin: 1ex auto;
+  padding: 1ex 1em;
+  background: #F7F7F7;
+  text-shadow: 0 0.1ex 0.1ex rgba(0, 0, 0, 0.125);
+  box-shadow: 0 0.125ex 1ex rgba(0, 0, 0, 0.25) inset;
+  color: #666;
+}
+
+/* line 71, src/style.scss */
+.data > div {
+  font-size: 75%;
+  font-weight: normal;
+}
+
+/* line 76, src/style.scss */
+#md5 {
+  font-size: 50%;
+}
+
+/* line 81, src/style.scss */
+.box:drag-over,
+.box:-webkit-drag-over {
+  background: #C96;
+}
+
+/* line 85, src/style.scss */
+.preview {
+  margin-top: 1ex;
+  margin-bottom: 1ex;
+}
+
+/* line 92, src/style.scss */
+#rjb * {
+  position: absolute;
+  left: 1em;
+  top: 1ex;
+  text-decoration: none;
+  color: #369;
+}
