@@ -16,6 +16,12 @@ rdfx.ddfi = (function () {
         */
         info = document.querySelector("#info"),
 
+        /*
+        Given a file, returns a dataURl for it.
+        */
+        asDataURL = function (filetype, file) {
+            return "data:" + filetype + ";base64," + window.btoa(file);
+        },
 
         /*
         tages a targetID and an object
@@ -58,7 +64,7 @@ rdfx.ddfi = (function () {
         /*
         Helper function for handlers that outputs standard text for any file
         */
-        addStandardText = function (file, targetID) {
+        addStandardText = function (targetID, file) {
             var i;
             addNodes(targetID, {
                 "h1": {
@@ -68,30 +74,33 @@ rdfx.ddfi = (function () {
             for (i = 0; i < fields.length; i += 1) {
                 propToHTML(targetID, fields[i], file[fields[i]]);
             }
-            propToHTML(targetID, "MD5", md5(event.target.result));
+            propToHTML(targetID, "MD5", SparkMD5.ArrayBuffer.hash(event.target.result));
         },
 
-        fileHandler = function (file, targetID, callback) {
+        fileHandler = function (targetID, file, callback) {
             var reader = new FileReader();
-            reader.addEventListener("load", callback);
-            reader.readAsDataURL(file);
+            reader.addEventListener("load",
+                function () {
+                    callback(targetID, file);
+                });
+            reader.readAsArrayBuffer(file);
         },
 
         /*
         Handler for files that can be rendered using the HTML5 img tag
         */
-        imageHandler = function (file, targetID) {
+        imageHandler = function (targetID, file) {
             fileHandler(
-                file,
                 targetID,
+                file,
                 function () {
-                    addStandardText(file, targetID);
+                    addStandardText(targetID, file);
 
                     addNodes(targetID, {
                         "img": {
                             "width": "100%",
                             "alt": "An image the user inserted into the page",
-                            'src': event.target.result,
+                            'src': asDataURL(file.type, event.target.result),
                             'class': 'preview'
                         }
                     });
@@ -103,17 +112,17 @@ rdfx.ddfi = (function () {
         /*
         Handler for files that can be rendered using the HTML5 video tag
         */
-        videoHandler = function (file, targetID) {
+        videoHandler = function (targetID, file) {
             fileHandler(
-                file,
                 targetID,
+                file,
                 function () {
                     addStandardText(targetID, file);
                     addNodes(targetID, {
                         "video": {
                             "width": "100%",
                             "alt": "An image the user inserted into the page",
-                            'src': event.target.result,
+                            'src': asDataURL(file.type, event.target.result),
                             'class': 'preview',
                             'controls': ""
                         }
@@ -128,12 +137,12 @@ rdfx.ddfi = (function () {
         Basic handler for files that do not have a bespoke
         rendering function.
         */
-        genericHandler = function (file, targetID) {
+        genericHandler = function (targetID, file) {
             fileHandler(
-                file,
                 targetID,
+                file,
                 function () {
-                    addStandardText(file, targetID);
+                    addStandardText(targetID, file);
                 }
             );
         },
@@ -162,12 +171,12 @@ rdfx.ddfi = (function () {
         Use the media type string of the file to select and invoke a bespoke
         handler for it, or invoke the generic handler if there is none
         */
-        invokeSpecialHandler = function (file, targetID) {
+        invokeSpecialHandler = function (targetID, file) {
             var handlerFunc = handler[file.type];
             if (handlerFunc) {
-                handlerFunc(file, targetID);
+                handlerFunc(targetID, file);
             } else {
-                genericHandler(file, targetID);
+                genericHandler(targetID, file);
             }
         },
 
@@ -182,7 +191,7 @@ rdfx.ddfi = (function () {
                 x = "<section id='" + id + "' class='box data'></section>";
 
             info.innerHTML = info.innerHTML + x; // gain help for specific media types
-            invokeSpecialHandler(file, "#" + id);
+            invokeSpecialHandler("#" + id, file);
         },
 
 

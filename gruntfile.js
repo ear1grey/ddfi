@@ -11,7 +11,7 @@ module.exports = function (grunt) {
                    browser: true,
                    predef: [
                        'rdfx',
-                       'md5',
+                       'SparkMD5',
                        'FileReader' // remove when jshint catches up
                    ]
                }
@@ -42,7 +42,7 @@ module.exports = function (grunt) {
                         expand: true,
                         src: [
                             '<%= pkg.folders.src %>/**/*.html',
-                            '**/md5.min.js',
+                            '**/*md5.min.js',
                             '<%= pkg.folders.src %>/**/*.js',
                             '**/cc-by-sa-88x31.png'
                         ],
